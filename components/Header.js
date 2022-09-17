@@ -1,9 +1,4 @@
-import { useContext } from "react";
-import { GlobalContext } from "../context/ContextWrapper";
-
 const Header = () => {
-	const { url, setUrl } = useContext(GlobalContext);
-
 	const styles = {
 		container:
 			"sticky top-0 z-50 flex bg-white px-4 md:px-8 items-center justify-between shadow-md",

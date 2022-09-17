@@ -1,18 +1,17 @@
 import Image from "next/image";
-import { getTitle, getDescription } from "../utils";
 import { useState } from "react";
 import { Search } from "react-feather";
+import { fetchMeta } from "../utils/fetchMeta";
 
 const Banner = () => {
-	const [seached, setSerched] = useState(false);
+	const [searched, setSearched] = useState(false);
 	const [url, setUrl] = useState("");
 	const [title, setTitle] = useState("이제 최상단에 이름을 올리세요");
 	const [description, setDescription] = useState(
 		"검색 광고보다 전환율이 18배 높은 자연 검색 노출 전문가 \n 내일은 최상단"
 	);
 	const doSearch = async (url) => {
-		const title = await getTitle(url);
-		const description = await getDescription(url);
+		const { title, description } = await fetchMeta(url);
 		setTitle(title);
 		setDescription(description);
 	};

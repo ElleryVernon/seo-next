@@ -1,9 +1,16 @@
 import axios from "axios";
-import cheerio from "cheerio";
+import { load } from "cheerio";
+axios.defaults.withCredentials = true;
 
 const getTitle = async (url) => {
 	try {
-		const res = await axios.get(url);
+		const res = await axios.get(
+			url,
+			{},
+			{
+				withCredentials: true, // 쿠키 cors 통신 설정
+			}
+		);
 		if (res.status && res.status === 200) {
 			const $ = cheerio.load(res.data);
 			const title = $("title").text();
@@ -17,9 +24,15 @@ const getTitle = async (url) => {
 
 const getDescription = async (url) => {
 	try {
-		const res = await axios.get(url);
+		const res = await axios.get(
+			url,
+			{},
+			{
+				withCredentials: true, // 쿠키 cors 통신 설정
+			}
+		);
 		if (res.status && res.status === 200) {
-			const $ = cheerio.load(res.data);
+			const $ = load(res.data);
 			const description = $("meta[name='description']").attr("content");
 			return description;
 		}
