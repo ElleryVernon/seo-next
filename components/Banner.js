@@ -6,14 +6,34 @@ import { fetchMeta } from "../utils/fetchMeta";
 const Banner = () => {
 	const [searched, setSearched] = useState(false);
 	const [url, setUrl] = useState("");
-	const [title, setTitle] = useState("이제 최상단에 이름을 올리세요");
-	const [description, setDescription] = useState(
-		"검색 광고보다 전환율이 18배 높은 자연 검색 노출 전문가 \n 내일은 최상단"
-	);
+	const [cardInfo, setCardInfo] = useState({
+		searchWord: "SEO | 아직도 안하셨 SEO?",
+		url: "mycompany.com",
+		title: "이제 최상단에 이름을 올리세요",
+		description:
+			"검색 광고보다 전환율이 18배 높은 자연 검색 노출 전문가 \n 내일은 최상단",
+	});
+
 	const doSearch = async (url) => {
+		setCardInfo((prevInfo) => {
+			return {
+				...prevInfo,
+				url: "조금만 기다려주세요",
+				title: "사이트 정보를 분석 중이에요!",
+				description: "함께 1등을 목표로 하겠습니다",
+			};
+		});
+
 		const { title, description } = await fetchMeta(url);
-		setTitle(title);
-		setDescription(description);
+		setCardInfo((prevInfo) => {
+			return {
+				...prevInfo,
+				searchWord: "실제 검색결과가 아닙니다.",
+				url: "우리의 최종 목표에요",
+				title,
+				description: description || "아직 설명이 없어요!",
+			};
+		});
 	};
 	return (
 		<article className="bg-blue-600 h-[80vh] xl:flex items-center text-white justify-center">
@@ -50,7 +70,7 @@ const Banner = () => {
 							<input
 								type="text"
 								className="mx-1 outline-0 text-black w-full"
-								placeholder="SEO | 아직도 안하셨 SEO?"
+								placeholder={cardInfo.searchWord}
 							/>
 						</div>
 					</div>
@@ -66,9 +86,11 @@ const Banner = () => {
 							<div className="cursor-pointer">더보기</div>
 						</div>
 						<div className="ml-36 mt-4 space-y-1">
-							<p>mycompany.com</p>
-							<p className="text-xl text-blue-700">{title}</p>
-							<p className="text-gray-600 text-sm mr-6">{description}</p>
+							<p className="text-xs">{cardInfo.url}</p>
+							<p className="text-xl text-blue-700">{cardInfo.title}</p>
+							<p className="text-gray-600 text-sm mr-6">
+								{cardInfo.description}
+							</p>
 						</div>
 						<div className="ml-36 mt-6 space-y-2">
 							<p className="bg-gray-300 rounded-sm w-1/3 h-5"></p>
