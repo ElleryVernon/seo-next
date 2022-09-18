@@ -42,12 +42,12 @@ const Banner = () => {
 				<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
 					이제 검색하면 우리가 1등, 검색엔진 최적화
 				</p>
-				<h1 className="text-3xl xl:text-4xl 2xl:text-5xl font-bold">
+				<p className="text-3xl xl:text-[2.5em] 2xl:text-[3em] font-bold">
 					오늘 쓰면, 내일은 최상단
-				</h1>
-				<p className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
-					구글 검색엔진 최적화(SEO) 전문 기업
 				</p>
+				<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+					구글 검색엔진 최적화(SEO) 전문 기업
+				</h1>
 				<div className="flex justify-evenly items-center border rounded-full pl-6 py-1 shadow-lg bg-white">
 					<input
 						type="text"
