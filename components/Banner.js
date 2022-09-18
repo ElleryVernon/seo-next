@@ -87,27 +87,24 @@ const Banner = () => {
 						<div className="cursor-pointer">도서</div>
 						<div className="cursor-pointer">더보기</div>
 					</div>
-					<div className="ml-20 xl:ml-36 mt-4 space-y-1">
+					<div className="ml-20 xl:ml-36 mt-3 xl:mt-4 space-y-1">
 						<p className="text-[0.3em] xl:text-[0.7em]">{cardInfo.url}</p>
 						<p className="text-[0.8em] xl:text-[1.1em] text-blue-700">
 							{cardInfo.title}
 						</p>
-						<p className="text-gray-600 text-[0.2em] xl:text-[0.8em] mr-6">
+						<p className="text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6">
 							{cardInfo.description}
 						</p>
 					</div>
-					<div className="ml-20 xl:ml-36 mt-6 space-y-2">
+					<div className="ml-20 xl:ml-36 mt-4 xl:mt-6 space-y-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>
 						<p className="bg-purple-300 rounded-sm w-2/3 lx:w-3/4 h-4 xl:h-6"></p>
 						<p className="bg-gray-400 rounded-sm h-7 xl:h-8 mr-6"></p>
 					</div>
-					<div className="ml-20 xl:ml-36 mt-6 space-y-2">
+					<div className="ml-20 xl:ml-36 mt-4 xl:mt-6 space-y-2 mb-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>
 						<p className="bg-purple-300 rounded-sm w-2/3 lx:w-3/4 h-4 xl:h-6"></p>
 						<p className="bg-gray-400 rounded-sm h-7 xl:h-8 mr-6"></p>
-					</div>
-					<div className="">
-						<input type="text" className="outline-0 text-black w-80" />
 					</div>
 				</section>
 			</section>
