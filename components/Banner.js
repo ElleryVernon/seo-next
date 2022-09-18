@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Search } from "react-feather";
+import { GlobalContext } from "../context/ContextWrapper";
 import { fetchMeta } from "../utils/fetchMeta";
 
 const Banner = () => {
 	const [searched, setSearched] = useState(false);
-	const [url, setUrl] = useState("");
+	const [url, setUrl] = useState(GlobalContext);
 	const [cardInfo, setCardInfo] = useState({
 		searchWord: "SEO | 아직도 안하셨 SEO?",
 		url: "mycompany.com",
@@ -25,6 +26,7 @@ const Banner = () => {
 		});
 
 		const { title, description } = await fetchMeta(url);
+		setSearched(true);
 		setCardInfo((prevInfo) => {
 			return {
 				...prevInfo,
@@ -39,15 +41,44 @@ const Banner = () => {
 	return (
 		<article className=" bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
 			<section className="flex flex-col space-y-4 xl:space-y-6 2xl:space-y-8 items-center xl:items-start">
-				<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
-					이제 검색하면 우리가 1등, 검색엔진 최적화
-				</p>
-				<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
-					오늘 쓰면, 내일은 최상단
-				</p>
-				<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
-					구글 검색엔진 최적화(SEO) 전문 기업
-				</h1>
+				{!searched ? (
+					<>
+						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+							이제 검색하면 우리가 1등, 검색엔진 최적화
+						</p>
+						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+							오늘 쓰면, 내일은 최상단
+						</p>
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+							구글 검색엔진 최적화(SEO) 전문 기업
+						</h1>
+					</>
+				) : cardInfo.url === "조금만 기다려주세요" ? (
+					<>
+						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+							내일은 최상단에서 알려드려요
+						</p>
+						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+							사이트를 분석중이에요  
+						</p>
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+							조금만 기다려주세요
+						</h1>
+					</>
+				) : (
+					<>
+						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+							내일은 최상단에서 알려드려요
+						</p>
+						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+							분석이 완료되었어요!
+						</p>
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+							스크롤하여 결과를 확인해보세요
+						</h1>
+					</>
+				)}
+
 				<div className="flex justify-evenly items-center border rounded-full pl-6 py-1 shadow-lg bg-white">
 					<input
 						type="text"

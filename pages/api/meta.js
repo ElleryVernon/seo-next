@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 export default async function handler(req, res) {
 	await NextCors(req, res, {
-		methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+		methods: ["GET", "HEAD"],
 		origin: "*",
 		optionsSuccessStatus: 200,
 	});
@@ -22,10 +22,7 @@ export default async function handler(req, res) {
 			const description = $("meta[name='description']").attr("content");
 			return res.status(200).json({ title, description });
 		}
-		return res.status(404).json({
-			title: "URL을 다시 확인해주세요",
-			description: "URL을 다시 확인해주세요",
-		});
+		throw new Error("요청 실패");
 	} catch (e) {
 		console.log(e);
 		return res.status(404).json({

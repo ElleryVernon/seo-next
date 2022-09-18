@@ -1170,6 +1170,11 @@
     "merge2" "^1.4.1"
     "slash" "^3.0.0"
 
+"google-trends-api@^4.9.2":
+  "integrity" "sha512-gjVSHCM8B7LyAAUpXb4B0/TfnmpwQ2z1w/mQ2bL0AKpr2j3gLS1j2YOnifpfsGJRxAGXB/NoC+nGwC5qSnZIiA=="
+  "resolved" "https://registry.npmjs.org/google-trends-api/-/google-trends-api-4.9.2.tgz"
+  "version" "4.9.2"
+
 "grapheme-splitter@^1.0.4":
   "integrity" "sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ=="
   "resolved" "https://registry.npmjs.org/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz"
