@@ -50,8 +50,8 @@ const Banner = () => {
 				<div className="flex justify-evenly items-center border rounded-full pl-6 py-1 shadow-lg bg-white">
 					<input
 						type="text"
-						className="mx-1 outline-0 text-black w-full p-4 font-bold bg-white"
-						placeholder="URL을 입력하고 버튼을 눌러 시작하세요"
+						className="mx-1 outline-0 text-black w-full p-4 font-bold bg-white text-sm md:text-md"
+						placeholder="URL을 입력하고 버튼을 눌러 시작"
 						onChange={(e) => setUrl(e.target.value)}
 					/>
 					<button
