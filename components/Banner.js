@@ -37,7 +37,7 @@ const Banner = () => {
 	};
 
 	return (
-		<article className="bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
+		<article className=" bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
 			<section className="flex flex-col space-y-4 xl:space-y-6 items-center xl:items-start">
 				<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
 					이제 검색하면 우리가 1등, 검색엔진 최적화
@@ -63,7 +63,7 @@ const Banner = () => {
 					</button>
 				</div>
 			</section>
-			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[48em] xl:ml-32 mt-10 sm:mt-12 xl:mt-0">
+			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32 mt-10 sm:mt-12 xl:mt-0">
 				<div className="flex flex-row">
 					<div className="relative h-12 w-12 xl:h-16 xl:w-24">
 						<Image src="/googlelogo.png" layout="fill" objectFit="contain" />
