@@ -1,3 +1,4 @@
+import Link from "next/link";
 const Header = () => {
 	const styles = {
 		container:
@@ -12,7 +13,9 @@ const Header = () => {
 
 	return (
 		<header className={styles.container}>
-			<h1 className={styles.logo}>내일은 최상단</h1>
+			<Link href="/">
+				<h1 className={styles.logo}>내일은 최상단</h1>
+			</Link>
 			<section className={styles.center}>
 				<div className={styles.centerButton}>프로젝트</div>
 				<div className={styles.centerButton}>가격안내</div>

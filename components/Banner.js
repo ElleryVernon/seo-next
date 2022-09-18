@@ -24,9 +24,8 @@ const Banner = () => {
 				description: "함께 1등을 목표로 하겠습니다",
 			};
 		});
-
-		const { title, description } = await fetchMeta(url);
 		setSearched(true);
+		const { title, description } = await fetchMeta(url);
 		setCardInfo((prevInfo) => {
 			return {
 				...prevInfo,
