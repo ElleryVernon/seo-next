@@ -36,7 +36,7 @@ const Banner = () => {
 		});
 	};
 	return (
-		<article className="bg-blue-600 h-[48em] sm:h-[52em] flex flex-col xl:flex-row items-center text-white justify-center">
+		<article className="bg-blue-600 h-[44em] sm:h-[52em] flex flex-col xl:flex-row items-center text-white justify-center">
 			<section className="flex flex-col space-y-4 xl:space-y-6 items-center xl:items-start">
 				<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
 					이제 검색하면 우리가 1등, 검색엔진 최적화
