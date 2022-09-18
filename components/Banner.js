@@ -62,7 +62,7 @@ const Banner = () => {
 					</button>
 				</div>
 			</section>
-			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[48em] xl:ml-32 mt-10 sm:mt-12 xl:mt-0 ml-1">
+			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[48em] xl:ml-32 mt-10 sm:mt-12 xl:mt-0">
 				<div className="flex flex-row">
 					<div className="relative h-12 w-12 xl:h-16 xl:w-24">
 						<Image src="/googlelogo.png" layout="fill" objectFit="contain" />
