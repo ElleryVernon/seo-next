@@ -41,7 +41,7 @@ const Banner = () => {
 	return (
 		<article className=" bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
 			<section className="flex flex-col space-y-4 xl:space-y-6 2xl:space-y-8 items-center xl:items-start">
-				{!searched || cardInfo.title === "URL을 다시 확인해주세요" ? (
+				{!searched ? (
 					<>
 						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
 							이제 검색하면 우리가 1등, 검색엔진 최적화
@@ -63,6 +63,18 @@ const Banner = () => {
 						</p>
 						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
 							조금만 기다려주세요
+						</h1>
+					</>
+				) : cardInfo.title === "URL을 다시 확인해주세요" ? (
+					<>
+						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+							내일은 최상단에서 알려드려요
+						</p>
+						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+							URL을 다시 확인해주세요!
+						</p>
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+							다시 입력한 후 버튼을 눌러보세요
 						</h1>
 					</>
 				) : (
