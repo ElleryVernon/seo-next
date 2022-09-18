@@ -88,7 +88,7 @@ const Banner = () => {
 						<div className="cursor-pointer">더보기</div>
 					</div>
 					<div className="ml-20 xl:ml-36 mt-3 xl:mt-4 space-y-1">
-						<p className="text-[0.3em] xl:text-[0.7em]">{cardInfo.url}</p>
+						<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
 						<p className="text-[0.8em] xl:text-[1.1em] text-blue-700">
 							{cardInfo.title}
 						</p>
