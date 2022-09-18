@@ -56,7 +56,7 @@ const Banner = () => {
 						onChange={(e) => setUrl(e.target.value)}
 					/>
 					<button
-						className="flex items-center justify-center transition h-12 w-16 xl:w-20 bg-blue-700 mx-4 rounded-full py-4 hover:scale-105 active:scale-100 active:opacity-70 shadow-lg"
+						className="flex items-center justify-center transition h-11 w-16 xl:w-16 bg-blue-700 mx-4 rounded-full py-4 hover:scale-105 active:scale-100 active:opacity-70 shadow-lg"
 						onClick={() => doSearch(url)}
 					>
 						<Search />
