@@ -38,11 +38,11 @@ const Banner = () => {
 
 	return (
 		<article className=" bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
-			<section className="flex flex-col space-y-4 xl:space-y-6 items-center xl:items-start">
+			<section className="flex flex-col space-y-4 xl:space-y-6 2xl:space-y-8 items-center xl:items-start">
 				<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
 					이제 검색하면 우리가 1등, 검색엔진 최적화
 				</p>
-				<p className="text-3xl xl:text-[2.5em] 2xl:text-[3em] font-bold">
+				<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
 					오늘 쓰면, 내일은 최상단
 				</p>
 				<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
