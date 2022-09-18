@@ -2,12 +2,12 @@ const Header = () => {
 	const styles = {
 		container:
 			"sticky top-0 z-50 flex bg-white px-4 md:px-8 items-center justify-between shadow-md text-black",
-		logo: "transition font-bold text-lg md:text-xl xl:text-2xl text-blue-700 cursor-pointer hover:scale-105 active:scale-100",
-		center: "flex space-x-2 md:space-x-4 h-max justify-center",
+		logo: "transition font-bold text-base md:text-lg xl:text-xl text-blue-700 cursor-pointer hover:scale-105 active:scale-100",
+		center: "flex space-x-2 sm:space-x-12 md:space-x-14 h-max justify-center",
 		centerButton:
-			"transition hover:bg-gray-200 cursor-pointer py-4 my-4 font-bold text-xs md:text-lg xl:text-xl px-1 md:px-4 rounded-xl active:bg-gray-300",
+			"transition hover:bg-gray-200 cursor-pointer py-2 my-4 font-bold text-xs md:text-base xl:text-lg px-1 md:px-4 rounded-xl active:bg-gray-300",
 		endButton:
-			"transition text-white font-bold bg-blue-700 py-3 px-6 rounded-xl cousor-pounter hover:bg-blue-500 active:bg-blue-700 cursor-pointer text-sm md:text-md xl:text-lg",
+			"transition text-white font-bold bg-blue-700 py-3 px-4 rounded-xl cousor-pounter hover:bg-blue-500 active:bg-blue-700 cursor-pointer text-xs md:text-sm xl:text-base",
 	};
 
 	return (

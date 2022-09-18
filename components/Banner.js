@@ -35,6 +35,7 @@ const Banner = () => {
 			};
 		});
 	};
+	
 	return (
 		<article className="bg-blue-600 h-[44em] sm:h-[52em] flex flex-col xl:flex-row items-center text-white justify-center">
 			<section className="flex flex-col space-y-4 xl:space-y-6 items-center xl:items-start">
