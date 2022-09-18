@@ -35,9 +35,9 @@ const Banner = () => {
 			};
 		});
 	};
-	
+
 	return (
-		<article className="bg-blue-600 h-[44em] sm:h-[52em] flex flex-col xl:flex-row items-center text-white justify-center">
+		<article className="bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
 			<section className="flex flex-col space-y-4 xl:space-y-6 items-center xl:items-start">
 				<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
 					이제 검색하면 우리가 1등, 검색엔진 최적화
@@ -56,7 +56,7 @@ const Banner = () => {
 						onChange={(e) => setUrl(e.target.value)}
 					/>
 					<button
-						className="flex items-center justify-center transition h-12 w-16 xl:w-14 bg-blue-700 mx-4 rounded-full py-4 hover:scale-105 active:scale-100 active:opacity-70 shadow-lg"
+						className="flex items-center justify-center transition h-12 w-16 xl:w-20 bg-blue-700 mx-4 rounded-full py-4 hover:scale-105 active:scale-100 active:opacity-70 shadow-lg"
 						onClick={() => doSearch(url)}
 					>
 						<Search />
