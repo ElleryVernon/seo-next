@@ -74,7 +74,7 @@ const Banner = () => {
 							URL을 다시 확인해주세요!
 						</p>
 						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
-							다시 입력한 후 버튼을 눌러보세요
+							URL에서 정보를 받아올 수 없어요
 						</h1>
 					</>
 				) : (
