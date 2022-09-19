@@ -1,7 +1,19 @@
 import NextCors from "nextjs-cors";
 import axios from "axios";
 import { load } from "cheerio";
-axios.defaults.withCredentials = true;
+
+const getDOM = async (url) => {
+	try {
+		if (!url.startsWith("http")) {
+			url = "http://" + url;
+		}
+		const res = await axios.get(url);
+		if (res.status !== 200) return "요청실패";
+		return load(res.data);
+	} catch (e) {
+		return "요청실패";
+	}
+};
 
 export default async function handler(req, res) {
 	await NextCors(req, res, {
@@ -9,25 +21,18 @@ export default async function handler(req, res) {
 		origin: "*",
 		optionsSuccessStatus: 200,
 	});
-	let { url } = req.query;
-	if (!url.startsWith("http")) {
-		url = "http://" + url;
-	}
 
-	try {
-		const response = await axios.get(url);
-		if (response.status && response.status === 200) {
-			const $ = load(response.data);
-			const title = $("title").text();
-			const description = $("meta[name='description']").attr("content");
-			return res.status(200).json({ title, description });
-		}
-		throw new Error("요청 실패");
-	} catch (e) {
-		console.log(e);
-		return res.status(404).json({
+	const { url } = req.query;
+	const $ = await getDOM(url);
+
+	if (typeof $ === "string") {
+		return res.status(400).json({
 			title: "URL을 다시 확인해주세요",
-			description: "URL을 다시 확인해주세요",
+			description: "정보를 받아올 수 없어요",
 		});
 	}
+
+	const title = $("title").text();
+	const description = $("meta[name='description']").attr("content");
+	return res.status(200).json({ title, description });
 }
