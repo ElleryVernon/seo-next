@@ -4,9 +4,7 @@ import { load } from "cheerio";
 
 const getDOM = async (url) => {
 	try {
-		if (!url.startsWith("http")) {
-			url = "http://" + url;
-		}
+		if (!url.startsWith("http")) url = "http://" + url;
 		const res = await axios.get(url);
 		if (res.status !== 200) return "요청실패";
 		return load(res.data);
