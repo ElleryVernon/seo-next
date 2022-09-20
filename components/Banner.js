@@ -219,7 +219,7 @@ const Banner = () => {
 							<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
 							<p
 								className={`${
-									showThumbnail ? "w-[22em]" : "w-[26em]"
+									showThumbnail ? "w-[21em]" : "w-[26em]"
 								} text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6`}
 							>
 								{title.length <= 37 ? title : title.slice(0, 37) + "..."}
