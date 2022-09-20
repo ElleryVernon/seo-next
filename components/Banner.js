@@ -189,8 +189,13 @@ const Banner = () => {
 				)}
 			</section>
 
-			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32">
-				<div className="flex flex-row">
+			<section className="bg-white rounded-md pb-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32">
+				<section className="bg-gray-100 h-6 xl:h-8 w-full rounded-t-md border-b gray-200 flex items-center pl-6 space-x-2 mb-1">
+					<p className="h-2 w-2 xl:h-3 xl:w-3 bg-rose-400 border border-rose-500 rounded-full"></p>
+					<p className="h-2 w-2 xl:h-3 xl:w-3 bg-orange-300 border border-orange-400 rounded-full"></p>
+					<p className="h-2 w-2 xl:h-3 xl:w-3 bg-green-400 border border-green-500 rounded-full"></p>
+				</section>
+				<div className="flex flex-row  px-5">
 					<div className="relative h-12 w-12 xl:h-16 xl:w-24">
 						<Image src="/googlelogo.png" layout="fill" objectFit="contain" />
 					</div>
@@ -203,7 +208,7 @@ const Banner = () => {
 						/>
 					</div>
 				</div>
-				<section className="text-gray-600 mt-2 xl:mt-4">
+				<section className="text-gray-600 mt-2 xl:mt-4  px-5">
 					<div className="flex space-x-4 border-b border-gray-200 text-[0.4em] xl:text-[0.8em]">
 						<div className="xl:ml-36 text-blue-600 border-b-2 border-blue-600 cursor-pointer pb-2">
 							전체

@@ -31,7 +31,7 @@ const Analsys = () => {
 				<h2 className="text-center pb-2 font-bold text-blue-700 text-base">
 					사이트 설명 (description)
 				</h2>
-				<section className="bg-white p-3 rounded-lg shadow">
+				<section className="bg-white p-3 rounded shadow">
 					<p className="font-bold pb-2">
 						컨텐츠 ({cardInfo.description.length}자)
 					</p>
