@@ -187,7 +187,7 @@ const Banner = () => {
 				</div>
 				<section className="text-gray-600 mt-2 xl:mt-4">
 					<div className="flex space-x-4 border-b border-gray-200 text-[0.4em] xl:text-[0.8em]">
-						<div className="ml-20 xl:ml-36 text-blue-600 border-b-2 border-blue-600 cursor-pointer pb-2">
+						<div className="xl:ml-36 text-blue-600 border-b-2 border-blue-600 cursor-pointer pb-2">
 							전체
 						</div>
 						<div className="cursor-pointer">이미지</div>
@@ -196,7 +196,7 @@ const Banner = () => {
 						<div className="cursor-pointer">도서</div>
 						<div className="cursor-pointer">더보기</div>
 					</div>
-					<div className="ml-20 xl:ml-36 mt-3 xl:mt-4 space-y-1">
+					<div className="xl:ml-36 mt-3 xl:mt-4 space-y-1">
 						<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
 						<p className="text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6">
 							{title.length <= 37 ? title : title.slice(0, 37) + "..."}
@@ -207,12 +207,12 @@ const Banner = () => {
 								: description.slice(0, 157) + "..."}
 						</p>
 					</div>
-					<div className="ml-20 xl:ml-36 mt-4 xl:mt-6 space-y-2">
+					<div className="xl:ml-36 mt-4 xl:mt-6 space-y-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>
 						<p className="bg-purple-300 rounded-sm w-2/3 lx:w-3/4 h-4 xl:h-6"></p>
 						<p className="bg-gray-400 rounded-sm h-7 xl:h-8 mr-6"></p>
 					</div>
-					<div className="ml-20 xl:ml-36 mt-4 xl:mt-6 space-y-2 mb-2">
+					<div className="xl:ml-36 mt-4 xl:mt-6 space-y-2 mb-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>
 						<p className="bg-purple-300 rounded-sm w-2/3 lx:w-3/4 h-4 xl:h-6"></p>
 						<p className="bg-gray-400 rounded-sm h-7 xl:h-8 mr-6"></p>
