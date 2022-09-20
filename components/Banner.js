@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useContext, useState } from "react";
-import { Search, X } from "react-feather";
+import { Search } from "react-feather";
 import { GlobalContext } from "../context/ContextWrapper";
 import { fetchMeta } from "../utils/fetchMeta";
 
@@ -21,10 +21,11 @@ const Banner = () => {
 				url: "조금만 기다려주세요",
 				title: "사이트 정보를 분석 중이에요!",
 				description: "함께 1등을 목표로 하겠습니다",
+				thumbnail: "",
 			};
 		});
 		setSearched(true);
-		const { title, description } = await fetchMeta(url);
+		const { title, description, thumbnail } = await fetchMeta(url);
 		setCardInfo((prevInfo) => {
 			return {
 				...prevInfo,
@@ -32,6 +33,7 @@ const Banner = () => {
 				url: "우리의 최종 목표에요",
 				title,
 				description: description || "아직 설명이 없어요!",
+				thumbnail: thumbnail || "",
 			};
 		});
 		setTitle(title);
@@ -44,7 +46,7 @@ const Banner = () => {
 				isModalOpen ? "h-[70em]" : "h-[50em]"
 			} xl:h-[46em] flex flex-col xl:flex-row items-center text-white justify-center`}
 		>
-			<section className="flex flex-col space-y-4 xl:space-y-4 2xl:space-y-6 s items-center xl:items-start mb-4">
+			<section className="flex flex-col space-y-4 xl:space-y-4 2xl:space-y-6 items-center xl:items-start mb-4">
 				{!searched ? (
 					<>
 						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
@@ -126,7 +128,7 @@ const Banner = () => {
 							<div className="flex">
 								제목
 								<div className="text-gray-500 font-md text-[0.8em] ml-1">
-									({title.length}/40)
+									({title.length}/37)
 								</div>
 							</div>
 							<button
@@ -138,7 +140,7 @@ const Banner = () => {
 						</p>
 						<textarea
 							value={title}
-							className={`outline-0 overflow-hiddene w-full border text-sm resize-none p-2 ${() =>
+							className={`outline-0 w-full border text-sm resize-none p-2 ${() =>
 								title.length > 40 ?? "border-2 border-red-500"}`}
 							onChange={(e) => setTitle(e.target.value)}
 						/>
@@ -146,7 +148,7 @@ const Banner = () => {
 							<div className="flex">
 								내용
 								<div className="text-gray-500 font-md text-[0.8em] ml-1">
-									({description.length}/160)
+									({description.length}/157)
 								</div>
 							</div>
 							<button
@@ -196,16 +198,26 @@ const Banner = () => {
 						<div className="cursor-pointer">도서</div>
 						<div className="cursor-pointer">더보기</div>
 					</div>
-					<div className="xl:ml-36 mt-3 xl:mt-4 space-y-1">
-						<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
-						<p className="text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6">
-							{title.length <= 37 ? title : title.slice(0, 37) + "..."}
-						</p>
-						<p className="text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6">
-							{description.length <= 157
-								? description
-								: description.slice(0, 157) + "..."}
-						</p>
+					<div className="flex xl:ml-36 mt-3 xl:mt-4 space-y-1">
+						<span>
+							<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
+							<p className="w-[22em] text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6">
+								{title.length <= 37 ? title : title.slice(0, 37) + "..."}
+							</p>
+							<p className="w-[29em] text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6">
+								{description.length <= 157
+									? description
+									: description.slice(0, 157) + "..."}
+							</p>
+						</span>
+						{cardInfo.thumbnail && (
+							<div className="h-14 w-14 xl:h-20 xl:w-20">
+								<img
+									src={cardInfo.thumbnail}
+									className="object-cover h-full w-full rounded-lg xl:rounded-xl"
+								/>
+							</div>
+						)}
 					</div>
 					<div className="xl:ml-36 mt-4 xl:mt-6 space-y-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>

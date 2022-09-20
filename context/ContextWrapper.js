@@ -23,6 +23,7 @@ export const GlobalContextProvider = (props) => {
 		title: "이제 최상단에 이름을 올리세요",
 		description:
 			"검색 광고보다 전환율이 18배 높은 자연 검색 노출 전문가 \n 내일은 최상단",
+		thumbnail: "",
 	});
 	return (
 		<GlobalContext.Provider
