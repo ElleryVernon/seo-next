@@ -1,20 +1,19 @@
 import Image from "next/image";
-import { useState } from "react";
-import { Search } from "react-feather";
+import { useContext, useState } from "react";
+import { Search, X } from "react-feather";
 import { GlobalContext } from "../context/ContextWrapper";
 import { fetchMeta } from "../utils/fetchMeta";
 
 const Banner = () => {
-	const [searched, setSearched] = useState(false);
-	const [url, setUrl] = useState(GlobalContext);
-	const [cardInfo, setCardInfo] = useState({
-		searchWord: "SEO | 아직도 안하셨 SEO?",
-		url: "mycompany.com",
-		title: "이제 최상단에 이름을 올리세요",
-		description:
-			"검색 광고보다 전환율이 18배 높은 자연 검색 노출 전문가 \n 내일은 최상단",
-	});
-
+	const reset = (target) => {
+		if (target === "title") setTitle(cardInfo.title);
+		if (target === "description") setDescription(cardInfo.description);
+	};
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const { searched, setSearched, cardInfo, setCardInfo, url, setUrl } =
+		useContext(GlobalContext);
+	const [title, setTitle] = useState(cardInfo.title);
+	const [description, setDescription] = useState(cardInfo.description);
 	const doSearch = async (url) => {
 		setCardInfo((prevInfo) => {
 			return {
@@ -35,11 +34,17 @@ const Banner = () => {
 				description: description || "아직 설명이 없어요!",
 			};
 		});
+		setTitle(title);
+		setDescription(description);
 	};
 
 	return (
-		<article className=" bg-blue-600 h-[44em] xl:h-[40em] flex flex-col xl:flex-row items-center text-white justify-center">
-			<section className="flex flex-col space-y-4 xl:space-y-6 2xl:space-y-8 items-center xl:items-start">
+		<article
+			className={`bg-blue-600 ${
+				isModalOpen ? "h-[70em]" : "h-[50em]"
+			} xl:h-[46em] flex flex-col xl:flex-row items-center text-white justify-center`}
+		>
+			<section className="flex flex-col space-y-4 xl:space-y-4 2xl:space-y-6 s items-center xl:items-start mb-4">
 				{!searched ? (
 					<>
 						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
@@ -48,7 +53,7 @@ const Banner = () => {
 						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
 							오늘 쓰면, 내일은 최상단
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4">
 							구글 검색엔진 최적화(SEO) 전문 기업
 						</h1>
 					</>
@@ -60,7 +65,7 @@ const Banner = () => {
 						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
 							사이트를 분석중이에요
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4">
 							조금만 기다려주세요
 						</h1>
 					</>
@@ -72,25 +77,25 @@ const Banner = () => {
 						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
 							URL을 다시 확인해주세요!
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4">
 							URL에서 정보를 받아올 수 없어요
 						</h1>
 					</>
 				) : (
 					<>
-						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+						<p className="text-md xl:text-lg 2xl:text-xl font-bold">
 							내일은 최상단에서 알려드려요
 						</p>
-						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+						<p className="text-3xl xl:text-[2.2em] 2xl:text-[2.7em] font-bold">
 							분석이 완료되었어요!
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4 xl:pb-8">
+						<h1 className="text-sm xl:text-md 2xl:text-lg font-bold">
 							스크롤하여 결과를 확인해보세요
 						</h1>
 					</>
 				)}
 
-				<div className="flex justify-evenly items-center border rounded-full pl-6 py-1 shadow-lg bg-white">
+				<div className="flex justify-center items-center border rounded-full pl-6 py-1 shadow-lg bg-white w-full">
 					<input
 						type="text"
 						className="mx-1 outline-0 text-black w-full p-4 font-bold bg-white text-sm md:text-md"
@@ -104,8 +109,69 @@ const Banner = () => {
 						<Search />
 					</button>
 				</div>
+				{!isModalOpen && (
+					<button
+						className="transition bg-white shadow-lg rounded-full w-full py-2 text-center text-lg text-blue-700 font-bold hover:opacity-90 active:opacity-60"
+						onClick={() => setIsModalOpen(true)}
+					>
+						검색결과 시뮬레이터 수정하기
+					</button>
+				)}
+				{isModalOpen && (
+					<section className="bg-white text-black xl:w-full p-4 rounded-md shadow-md w-[26em] space-y-2">
+						<p className="text-center mb-4 text-blue-700 font-bold">
+							구글 검색 결과 시뮬레이터
+						</p>
+						<p className="text-sm font-bold flex justify-between">
+							<div className="flex">
+								제목
+								<div className="text-gray-500 font-md text-[0.8em] ml-1">
+									({title.length}/40)
+								</div>
+							</div>
+							<button
+								className="bg-blue-700 text-white px-2 text-xs ml-1 rounded hover:bg-blue-600 active:bg-blue-800"
+								onClick={() => reset("title")}
+							>
+								초기화
+							</button>
+						</p>
+						<textarea
+							value={title}
+							className={`outline-0 overflow-hiddene w-full border text-sm resize-none p-2 ${() =>
+								title.length > 40 ?? "border-2 border-red-500"}`}
+							onChange={(e) => setTitle(e.target.value)}
+						/>
+						<p className="text-sm font-bold flex  justify-between">
+							<div className="flex">
+								내용
+								<div className="text-gray-500 font-md text-[0.8em] ml-1">
+									({description.length}/160)
+								</div>
+							</div>
+							<button
+								className="bg-blue-700 text-white px-2 text-xs ml-1 rounded hover:bg-blue-600 active:bg-blue-800"
+								onClick={() => reset("description")}
+							>
+								초기화
+							</button>
+						</p>
+						<textarea
+							value={description}
+							className="h-[6em] outline-0 w-full border text-sm resize-none p-2"
+							onChange={(e) => setDescription(e.target.value)}
+						/>
+						<button
+							className="transition w-full text-sm bg-blue-700 font-bold py-1 rounded text-white hover:opacity-90 active:opacity-60"
+							onClick={() => setIsModalOpen(false)}
+						>
+							닫기
+						</button>
+					</section>
+				)}
 			</section>
-			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32 mt-10 sm:mt-12 xl:mt-0">
+
+			<section className="bg-white rounded-md px-5 py-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32">
 				<div className="flex flex-row">
 					<div className="relative h-12 w-12 xl:h-16 xl:w-24">
 						<Image src="/googlelogo.png" layout="fill" objectFit="contain" />
@@ -132,11 +198,13 @@ const Banner = () => {
 					</div>
 					<div className="ml-20 xl:ml-36 mt-3 xl:mt-4 space-y-1">
 						<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
-						<p className="text-[0.8em] xl:text-[1.1em] text-blue-700">
-							{cardInfo.title}
+						<p className="text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6">
+							{title.length <= 37 ? title : title.slice(0, 37) + "..."}
 						</p>
 						<p className="text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6">
-							{cardInfo.description}
+							{description.length <= 157
+								? description
+								: description.slice(0, 157) + "..."}
 						</p>
 					</div>
 					<div className="ml-20 xl:ml-36 mt-4 xl:mt-6 space-y-2">

@@ -32,5 +32,9 @@ export default async function handler(req, res) {
 
 	const title = $("title").text();
 	const description = $("meta[name='description']").attr("content");
+	const h1 = $("h1");
+	const h2 = $("h2");
+	const h3 = $("h3");
+	const h4 = $("h4");
 	return res.status(200).json({ title, description });
 }
