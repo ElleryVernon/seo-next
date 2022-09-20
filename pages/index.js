@@ -9,7 +9,7 @@ export default function Home() {
 			<Header />
 			<Banner />
 			{/* <Description /> */}
-			<Analsys />
+			{/* <Analsys /> */}
 		</>
 	);
 }
