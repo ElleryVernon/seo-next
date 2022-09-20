@@ -18,14 +18,14 @@ const Analsys = () => {
 					<p className="font-bold pb-2">컨텐츠 ({cardInfo.title.length}자)</p>
 					<p>{cardInfo.title}</p>
 				</section>
-				<p className="border border-green-200 bg-green-100 p-3 rounded text-green-700 shadow flex items-center">
+				<section className="border border-green-200 bg-green-100 p-3 rounded text-green-700 shadow flex items-center">
 					<Check
 						height={14}
 						width={14}
 						className="border border-green-700 rounded-full mr-1"
 					/>
-					<div>구글 검색결과에 잘 나올거에요</div>
-				</p>
+					<p>구글 검색결과에 잘 나올거에요</p>
+				</section>
 			</section>
 			<section className="w-[24em] xl:w-[32em] border p-5 rounded-md shadow text-xs space-y-2 bg-blue-100 border-blue-300">
 				<h2 className="text-center pb-2 font-bold text-blue-700 text-base">
@@ -37,14 +37,14 @@ const Analsys = () => {
 					</p>
 					<p>{cardInfo.description}</p>
 				</section>
-				<p className="border border-green-200 bg-green-100 p-3 rounded text-green-700 shadow flex items-center">
+				<section className="border border-green-200 bg-green-100 p-3 rounded text-green-700 shadow flex items-center">
 					<Check
 						height={16}
 						width={16}
 						className="border border-green-700 rounded-full mr-1"
 					/>
-					<div>구글 검색결과에 잘 나올거에요</div>
-				</p>
+					<p>구글 검색결과에 잘 나올거에요</p>
+				</section>
 			</section>
 		</main>
 	);

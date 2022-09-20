@@ -125,7 +125,7 @@ const Banner = () => {
 						<p className="text-center mb-4 text-blue-700 font-bold">
 							구글 검색 결과 시뮬레이터
 						</p>
-						<p className="text-sm font-bold flex justify-between">
+						<section className="text-sm font-bold flex justify-between">
 							<div className="flex">
 								제목
 								<div className="text-gray-500 font-md text-[0.8em] ml-1">
@@ -138,14 +138,14 @@ const Banner = () => {
 							>
 								초기화
 							</button>
-						</p>
+						</section>
 						<textarea
 							value={title}
 							className={`outline-0 w-full border text-sm resize-none p-2 ${() =>
 								title.length > 40 ?? "border-2 border-red-500"}`}
 							onChange={(e) => setTitle(e.target.value)}
 						/>
-						<p className="text-sm font-bold flex  justify-between">
+						<section className="text-sm font-bold flex  justify-between">
 							<div className="flex">
 								내용
 								<div className="text-gray-500 font-md text-[0.8em] ml-1">
@@ -158,7 +158,7 @@ const Banner = () => {
 							>
 								초기화
 							</button>
-						</p>
+						</section>
 						<textarea
 							value={description}
 							className="h-[6em] outline-0 w-full border text-sm resize-none p-2"
@@ -191,9 +191,9 @@ const Banner = () => {
 
 			<section className="bg-white rounded-md pb-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32">
 				<section className="bg-gray-100 h-6 xl:h-8 w-full rounded-t-md border-b gray-200 flex items-center pl-6 space-x-2 mb-1">
-					<p className="h-2 w-2 xl:h-3 xl:w-3 bg-rose-400 border border-rose-500 rounded-full"></p>
-					<p className="h-2 w-2 xl:h-3 xl:w-3 bg-orange-300 border border-orange-400 rounded-full"></p>
-					<p className="h-2 w-2 xl:h-3 xl:w-3 bg-green-400 border border-green-500 rounded-full"></p>
+					<div className="h-2 w-2 xl:h-3 xl:w-3 bg-rose-400 border border-rose-500 rounded-full"></div>
+					<div className="h-2 w-2 xl:h-3 xl:w-3 bg-orange-300 border border-orange-400 rounded-full"></div>
+					<div className="h-2 w-2 xl:h-3 xl:w-3 bg-green-400 border border-green-500 rounded-full"></div>
 				</section>
 				<div className="flex flex-row  px-5">
 					<div className="relative h-12 w-12 xl:h-16 xl:w-24">
@@ -213,14 +213,14 @@ const Banner = () => {
 						<div className="xl:ml-36 text-blue-600 border-b-2 border-blue-600 cursor-pointer pb-2">
 							전체
 						</div>
-						<div className="cursor-pointer">이미지</div>
-						<div className="cursor-pointer">지도</div>
-						<div className="cursor-pointer">뉴스</div>
-						<div className="cursor-pointer">도서</div>
-						<div className="cursor-pointer">더보기</div>
+						<p className="cursor-pointer">이미지</p>
+						<p className="cursor-pointer">지도</p>
+						<p className="cursor-pointer">뉴스</p>
+						<p className="cursor-pointer">도서</p>
+						<p className="cursor-pointer">더보기</p>
 					</div>
 					<div className="flex xl:ml-36 mt-3 xl:mt-4 space-y-1">
-						<span>
+						<section>
 							<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
 							<p
 								className={`${
@@ -238,7 +238,7 @@ const Banner = () => {
 									? description
 									: description.slice(0, 157) + "..."}
 							</p>
-						</span>
+						</section>
 						{cardInfo.thumbnail && showThumbnail && (
 							<div className="h-14 w-14 xl:h-20 xl:w-20">
 								<img
