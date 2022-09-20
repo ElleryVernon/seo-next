@@ -9,7 +9,7 @@ const Banner = () => {
 		if (target === "title") setTitle(cardInfo.title);
 		if (target === "description") setDescription(cardInfo.description);
 	};
-	const [showThumbnail, SetShowThumbnail] = useState(false);
+	const [showThumbnail, SetShowThumbnail] = useState(true);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { searched, setSearched, cardInfo, setCardInfo, url, setUrl } =
 		useContext(GlobalContext);
@@ -238,12 +238,12 @@ const Banner = () => {
 					</div>
 					<div className="xl:ml-36 mt-4 xl:mt-6 space-y-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>
-						<p className="bg-purple-300 rounded-sm w-2/3 lx:w-3/4 h-4 xl:h-6"></p>
+						<p className="bg-purple-300 rounded-sm w-1/2 lx:w-3/4 h-4 xl:h-6"></p>
 						<p className="bg-gray-400 rounded-sm h-7 xl:h-8 mr-6"></p>
 					</div>
 					<div className="xl:ml-36 mt-4 xl:mt-6 space-y-2 mb-2">
 						<p className="bg-gray-300 rounded-sm w-1/3 h-3 xl:h-5"></p>
-						<p className="bg-purple-300 rounded-sm w-2/3 lx:w-3/4 h-4 xl:h-6"></p>
+						<p className="bg-purple-300 rounded-sm w-1/2 lx:w-3/4 h-4 xl:h-6"></p>
 						<p className="bg-gray-400 rounded-sm h-7 xl:h-8 mr-6"></p>
 					</div>
 				</section>
