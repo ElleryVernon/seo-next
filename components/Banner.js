@@ -9,6 +9,7 @@ const Banner = () => {
 		if (target === "title") setTitle(cardInfo.title);
 		if (target === "description") setDescription(cardInfo.description);
 	};
+	const [showThumbnail, SetShowThumbnail] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { searched, setSearched, cardInfo, setCardInfo, url, setUrl } =
 		useContext(GlobalContext);
@@ -161,8 +162,23 @@ const Banner = () => {
 						<textarea
 							value={description}
 							className="h-[6em] outline-0 w-full border text-sm resize-none p-2"
-							onChange={(e) => setDescription(e.target.value)}
+							onChange={(e) => setDescription(!showThumbnail)}
 						/>
+						<div class="flex items-center">
+							<input
+								id="link-checkbox"
+								type="checkbox"
+								checked={showThumbnail}
+								onChange={(e) => SetShowThumbnail(e.target.checked)}
+								class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 outline-0"
+							/>
+							<label
+								for="link-checkbox"
+								class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+							>
+								썸네일 미리보기
+							</label>
+						</div>
 						<button
 							className="transition w-full text-sm bg-blue-700 font-bold py-1 rounded text-white hover:opacity-90 active:opacity-60"
 							onClick={() => setIsModalOpen(false)}
@@ -210,7 +226,7 @@ const Banner = () => {
 									: description.slice(0, 157) + "..."}
 							</p>
 						</span>
-						{cardInfo.thumbnail && (
+						{cardInfo.thumbnail && showThumbnail && (
 							<div className="h-14 w-14 xl:h-20 xl:w-20">
 								<img
 									src={cardInfo.thumbnail}
