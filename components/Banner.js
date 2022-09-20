@@ -215,6 +215,7 @@ const Banner = () => {
 								<img
 									src={cardInfo.thumbnail}
 									className="object-cover h-full w-full rounded-lg xl:rounded-xl"
+									alt="site thumbnail"
 								/>
 							</div>
 						)}
