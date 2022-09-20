@@ -162,7 +162,7 @@ const Banner = () => {
 						<textarea
 							value={description}
 							className="h-[6em] outline-0 w-full border text-sm resize-none p-2"
-							onChange={(e) => setDescription(!showThumbnail)}
+							onChange={(e) => setDescription(e.target.value)}
 						/>
 						<div class="flex items-center">
 							<input
@@ -217,10 +217,18 @@ const Banner = () => {
 					<div className="flex xl:ml-36 mt-3 xl:mt-4 space-y-1">
 						<span>
 							<p className="text-[0.4em] xl:text-[0.7em]">{cardInfo.url}</p>
-							<p className="w-[22em] text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6">
+							<p
+								className={`${
+									showThumbnail ? "w-[22em]" : "w-[26em]"
+								} text-[0.8em] xl:text-[1.1em] text-blue-700 mr-6`}
+							>
 								{title.length <= 37 ? title : title.slice(0, 37) + "..."}
 							</p>
-							<p className="w-[29em] text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6">
+							<p
+								className={`${
+									showThumbnail ? "w-[29em]" : "w-[35em]"
+								} text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6`}
+							>
 								{description.length <= 157
 									? description
 									: description.slice(0, 157) + "..."}
