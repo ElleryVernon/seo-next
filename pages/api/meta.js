@@ -5,10 +5,12 @@ import { load } from "cheerio";
 const getDOM = async (url) => {
 	try {
 		if (!url.startsWith("http")) url = "http://" + url;
+		console.log(url);
 		const res = await axios.get(url);
 		if (res.status !== 200) return "요청실패";
 		return load(res.data);
 	} catch (e) {
+		console.log(e);
 		return "요청실패";
 	}
 };
