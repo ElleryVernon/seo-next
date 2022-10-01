@@ -23,8 +23,9 @@ export default async function handler(req, res) {
 			`https://www.google.com/search?q=${encodeURI("site:" + rootDomain)}`,
 			AXIOS_OPTIONS
 		);
-		return res.status(200).json({ message: "성공" });
+
 		const $ = cheerio.load(data);
+		return res.status(200).json({ message: "성공" });
 		const resultCount = Number(
 			$("#result-stats")
 				.text()
