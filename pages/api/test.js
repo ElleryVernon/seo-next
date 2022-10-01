@@ -25,14 +25,10 @@ export default async function handler(req, res) {
 		);
 
 		const $ = cheerio.load(data);
-		const resultCount = Number(
-			$("#result-stats")
-				.text()
-				.split("약 ")[1]
-				.split("개")[0]
-				.replaceAll(",", "")
-		);
-
+		const resultCount = $("#result-stats")
+			.text()
+			.split("약 ")[1]
+			.split("개")[0];
 		res.status(200).json({
 			root: rootDomain,
 			root_domain_serp_count: resultCount,
