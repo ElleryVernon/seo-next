@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 			`https://www.google.com/search?q=site:${encodeURI(rootDomain)}`,
 			AXIOS_OPTIONS
 		);
-		res.json(data);
+		res.json({ data });
 		const $ = cheerio.load(data);
 		const resultCount = Number(
 			$("#result-stats")
