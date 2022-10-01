@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
 				/>
 				<meta
 					name="google-site-verification"
-					content="ec2yesjEEYPkroCaZngrf6y9RJuFqnDisUxNiw57hxk"
+					content="-_2VJRVe6aqCvwaYpCGTfKDFk-cJZrBNRibd_VDJbT4"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
