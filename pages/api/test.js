@@ -34,12 +34,12 @@ export default async function handler(req, res) {
 		);
 
 		res.status(200).json({
-			root_domain: rootDomain,
+			root: rootDomain,
 			root_domain_serp_count: resultCount,
 			...metadata,
 		});
 	} catch (err) {
 		console.log(err);
-		res.status(400).json({ message: "올바르지 않은 URL 입니다." });
+		res.status(400).json({ message: "올바르지 않은 URL 입니다.", err });
 	}
 }
