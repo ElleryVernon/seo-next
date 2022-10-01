@@ -1649,6 +1649,11 @@
     "has" "^1.0.3"
     "has-symbols" "^1.0.3"
 
+"get-root-domain@^0.0.1":
+  "integrity" "sha512-z6tz1zHZNRqTIDdbSe0uBKZXqDjnXvqpSVe4+cQ6dhXTtEFq+tjanzz6hCkhmYjAeSt7HGfFOdPg1rMafpx5Dg=="
+  "resolved" "https://registry.npmjs.org/get-root-domain/-/get-root-domain-0.0.1.tgz"
+  "version" "0.0.1"
+
 "get-stdin@^6.0.0":
   "integrity" "sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g=="
   "resolved" "https://registry.npmjs.org/get-stdin/-/get-stdin-6.0.0.tgz"
