@@ -31,6 +31,7 @@ export default async function handler(req, res) {
 				.split("개")[0]
 				.replaceAll(",", "")
 		);
+		res.status(200).json({ message: "성공" });
 
 		res.status(200).json({
 			root: rootDomain,
