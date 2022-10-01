@@ -19,19 +19,19 @@ export default async function handler(req, res) {
 		const rootDomain = getRootDomain(target);
 		const metadata = await urlMetadata(target);
 
-		const { data } = await axios.get(
-			`https://www.google.com/search?q=site:${rootDomain}`,
-			AXIOS_OPTIONS
-		);
+		// const { data } = await axios.get(
+		// 	`https://www.google.com/search?q=site:${rootDomain}`,
+		// 	AXIOS_OPTIONS
+		// );
 
-		const $ = cheerio.load(data);
-		const resultCount = $("#result-stats")
-			.text()
-			.split("약 ")[1]
-			.split("개")[0];
-		res.status(200).json({
+		// const $ = cheerio.load(data);
+		// const resultCount = $("#result-stats")
+		// 	.text()
+		// 	.split("약 ")[1]
+		// 	.split("개")[0];
+		// res.status(200).json({
 			root: rootDomain || "",
-			root_domain_serp_count: resultCount || "",
+			metadata,
 		});
 	} catch (err) {
 		console.log(err);
