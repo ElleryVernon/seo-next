@@ -30,9 +30,8 @@ export default async function handler(req, res) {
 			.split("약 ")[1]
 			.split("개")[0];
 		res.status(200).json({
-			root: rootDomain,
-			root_domain_serp_count: resultCount,
-			...metadata,
+			root: rootDomain || "",
+			root_domain_serp_count: resultCount || "",
 		});
 	} catch (err) {
 		console.log(err);
