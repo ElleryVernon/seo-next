@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useContext, useState } from "react";
-import { Search } from "react-feather";
+import { Search, ArrowRight } from "react-feather";
 import { GlobalContext } from "../context/ContextWrapper";
 import { fetchMeta } from "../utils/fetchMeta";
 
@@ -33,7 +33,7 @@ const Banner = () => {
 				searchWord: "실제 검색결과가 아닙니다.",
 				url: "우리의 최종 목표에요",
 				title,
-				description: description || "아직 설명이 없어요!",
+				description: description || "아직 사이트에 설명이 존재하지 않아요!",
 				thumbnail: thumbnail || "",
 			};
 		});
@@ -43,85 +43,94 @@ const Banner = () => {
 
 	return (
 		<article
-			className={`bg-blue-600 ${
+			className={`bg-white shadow-2xl ${
 				isModalOpen ? "h-[70em]" : "h-[50em]"
 			} xl:h-[46em] flex flex-col xl:flex-row items-center text-white justify-center`}
 		>
 			<section className="flex flex-col space-y-4 xl:space-y-4 2xl:space-y-6 items-center xl:items-start mb-4">
 				{!searched ? (
 					<>
-						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+						<p className="text-md xl:text-xl 2xl:text-2xl font-base text-gray-900">
 							이제 검색하면 우리가 1등, 검색엔진 최적화
 						</p>
-						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+						<p className="text-4xl xl:text-[2.8em] 2xl:text-[3.8em] font-bold text-blue-500">
 							오늘 쓰면, 내일은 최상단
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4">
+						<h1 className="text-sm xl:text-md 2xl:text-xl text-gray-900 font-base">
 							구글 검색엔진 최적화(SEO) 전문 기업
 						</h1>
 					</>
 				) : cardInfo.url === "조금만 기다려주세요" ? (
 					<>
-						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+						<p className="text-md xl:text-xl 2xl:text-2xl font-base text-gray-900">
 							내일은 최상단에서 알려드려요
 						</p>
-						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+						<p className="text-4xl xl:text-[2.8em] 2xl:text-[3.8em] font-bold text-blue-500">
 							사이트를 분석중이에요
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4">
+						<h1 className="text-sm xl:text-md 2xl:text-xl pb-4 text-gray-900">
 							조금만 기다려주세요
 						</h1>
 					</>
 				) : cardInfo.title === "URL을 다시 확인해주세요" ? (
 					<>
-						<p className="text-md xl:text-xl 2xl:text-2xl font-bold">
+						<p className="text-md xl:text-xl 2xl:text-2xl font-base text-gray-900">
 							내일은 최상단에서 알려드려요
 						</p>
-						<p className="text-3xl xl:text-[2.5em] 2xl:text-[3.5em] font-bold">
+						<p className="text-4xl xl:text-[2.8em] 2xl:text-[3.8em] font-bold text-blue-500">
 							URL을 다시 확인해주세요!
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-xl font-bold pb-4">
+						<h1 className="text-sm xl:text-md 2xl:text-xl pb-4 text-gray-900">
 							URL에서 정보를 받아올 수 없어요
 						</h1>
 					</>
 				) : (
 					<>
-						<p className="text-md xl:text-lg 2xl:text-xl font-bold">
+						<p className="text-md xl:text-lg 2xl:text-xl font-base text-gray-900">
 							내일은 최상단에서 알려드려요
 						</p>
-						<p className="text-3xl xl:text-[2.2em] 2xl:text-[2.7em] font-bold">
+						<p className="text-4xl xl:text-[2.8em] 2xl:text-[3.8em] font-bold text-blue-500">
 							분석이 완료되었어요!
 						</p>
-						<h1 className="text-sm xl:text-md 2xl:text-lg font-bold">
+						<h1 className="text-sm xl:text-md 2xl:text-lg text-gray-900">
 							스크롤하여 결과를 확인해보세요
 						</h1>
 					</>
 				)}
 
-				<div className="flex justify-center items-center border rounded-full pl-6 py-1 shadow-lg bg-white w-full">
+				<div className="flex justify-center items-center border rounded-full pl-6 py-1 shadow-md bg-white w-full border-gray-300">
 					<input
 						type="text"
-						className="mx-1 outline-0 text-black w-full p-4 font-bold bg-white text-sm md:text-md"
-						placeholder="URL을 입력하고 버튼을 눌러 시작"
+						className="mx-1 outline-0 text-black w-full p-4 font-bold bg-white text-xs md:text-md"
+						placeholder="URL을 입력하고 버튼을 눌러 체험하기"
 						onChange={(e) => setUrl(e.target.value)}
 					/>
 					<button
-						className="flex items-center justify-center transition h-11 w-16 xl:w-16 bg-blue-700 mx-4 rounded-full py-4 hover:scale-105 active:scale-100 active:opacity-70 shadow-lg"
+						className="flex items-center justify-center transition font-bold h-10 xl:h-11 w-20 bg-blue-700 mx-4 rounded-full hover:scale-105 active:scale-100 active:opacity-70 shadow-lg text-sm xl:text-base"
 						onClick={() => doSearch(url)}
 					>
-						<Search />
+						시작
 					</button>
 				</div>
 				{!isModalOpen && (
-					<button
-						className="transition bg-white shadow-lg rounded-full w-full py-2 text-center text-lg text-blue-700 font-bold hover:opacity-90 active:opacity-60"
-						onClick={() => setIsModalOpen(true)}
-					>
-						검색결과 시뮬레이터 수정하기
-					</button>
+					<div className="flex w-full">
+						<button
+							className="transition bg-blue-700 shadow-lg rounded-xl w-1/2 py-2 xl:py-3 text-center text-xs xl:text-sm text-white font-bold hover:opacity-90 active:opacity-60 mr-2"
+							onClick={() => setIsModalOpen(true)}
+						>
+							검색결과 시뮬레이터 체험하기
+						</button>
+						<button
+							className="transition shadow-lg rounded-xl w-1/2 py-3 text-center text-xs xl:text-sm text-gray-700 font-bold hover:opacity-90 active:opacity-60 border flex items-center justify-center ml-2"
+							onClick={() => setIsModalOpen(true)}
+						>
+							더 많은 기능 체험하기
+							<ArrowRight />
+						</button>
+					</div>
 				)}
 				{isModalOpen && (
-					<section className="bg-white text-black xl:w-full p-4 rounded-md shadow-md w-[26em] space-y-2">
+					<section className="border bg-white text-black xl:w-full p-4 rounded-md shadow-md w-[26em] space-y-2">
 						<p className="text-center mb-4 text-blue-700 font-bold">
 							구글 검색 결과 시뮬레이터
 						</p>
@@ -149,7 +158,7 @@ const Banner = () => {
 							<div className="flex">
 								내용
 								<div className="text-gray-500 font-md text-[0.8em] ml-1">
-									({description.length}/157)
+									({description?.length || description.length}/157)
 								</div>
 							</div>
 							<button
@@ -188,8 +197,7 @@ const Banner = () => {
 					</section>
 				)}
 			</section>
-
-			<section className="bg-white rounded-md pb-3 shadow-lg flex flex-col w-[26em] xl:w-[44em] xl:ml-32">
+			<section className="border bg-white rounded-md pb-3 shadow-2xl flex flex-col w-[26em] xl:w-[44em] xl:ml-32">
 				<section className="bg-gray-100 h-6 xl:h-8 w-full rounded-t-md border-b gray-200 flex items-center pl-6 space-x-2 mb-1">
 					<div className="h-2 w-2 xl:h-3 xl:w-3 bg-rose-400 border border-rose-500 rounded-full"></div>
 					<div className="h-2 w-2 xl:h-3 xl:w-3 bg-orange-300 border border-orange-400 rounded-full"></div>
@@ -234,7 +242,9 @@ const Banner = () => {
 									showThumbnail ? "w-[29em]" : "w-[35em]"
 								} text-gray-600 text-[0.6em] xl:text-[0.8em] mr-6`}
 							>
-								{description.length <= 157
+								{!description?.length
+									? "아직 사이트에 설명이 존재하지 않아요!"
+									: description.length <= 157
 									? description
 									: description.slice(0, 157) + "..."}
 							</p>
