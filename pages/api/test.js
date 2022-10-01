@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 		const metadata = await urlMetadata(target);
 
 		const { data } = await axios.get(
-			`https://www.google.com/search?q=site:${encodeURI(rootDomain)}`,
+			`https://www.google.com/search?q=${encodeURI("site:" + rootDomain)}`,
 			AXIOS_OPTIONS
 		);
 		return res.status(200).json({ message: "성공" });
