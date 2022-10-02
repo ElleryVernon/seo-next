@@ -12,8 +12,8 @@ export default async function handler(req, res) {
 
 		res.status(200).json({
 			root: rootDomain || "",
-			json_ld: jsonld,
 			metadata,
+			json_ld: jsonld,
 		});
 	} catch (err) {
 		console.log(err);
