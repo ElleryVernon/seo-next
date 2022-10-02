@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 			return res.status(200).json({
 				root: rootDomain || "",
 				serp_rank: rank,
-				top_ten_of_serf: results,
+				top_ten_of_serp: results,
 				metadata,
 				json_ld: jsonld,
 			});
