@@ -23,18 +23,18 @@ export default async function handler(req, res) {
 		}
 		const rootDomain = getRootDomain(target);
 		const { jsonld, ...metadata } = await urlMetadata(target);
-		if (keyword) {
-			const [rank, results] = await searchByKeyword(metadata.url, keyword);
+		if (!keyword)
 			return res.status(200).json({
 				root: rootDomain || "",
-				serp_rank: rank,
-				top_ten_of_serp: results,
 				metadata,
 				json_ld: jsonld,
 			});
-		}
+
+		const [rank, results] = await searchByKeyword(metadata.url, keyword);
 		return res.status(200).json({
 			root: rootDomain || "",
+			serp_rank: rank,
+			top_ten_of_serp: results,
 			metadata,
 			json_ld: jsonld,
 		});
