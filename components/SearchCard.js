@@ -100,8 +100,10 @@ const SearchCard = ({ result, rank }) => {
 		) : !objIsEmpty(siteInfo.inspection[key]) ? (
 			<div>
 				<p className="text-gray-500 font-bold">{`${key}`}</p>
-				{Object.keys(siteInfo.inspection[key]).map((k) => (
-					<p className="py-1">{`${k}: ` + siteInfo.inspection[key][k]}</p>
+				{Object.keys(siteInfo.inspection[key]).map((k, idx) => (
+					<p className="py-1" key={idx}>
+						{`${k}: ` + siteInfo.inspection[key][k]}
+					</p>
 				))}
 			</div>
 		) : (
