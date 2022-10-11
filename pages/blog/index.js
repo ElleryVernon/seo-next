@@ -11,7 +11,7 @@ const blog = ({ articles }) => {
 				{articles.map((article) => {
 					const date = article.properties.date.date.start.split("-");
 					return (
-						<Link href={`/blog/${article.id}`}>
+						<Link href={`/blog/${article.id}`} key={article.id}>
 							<article
 								key={article.id}
 								className="max-w-sm rounded overflow-hidden shadow-lg border-gray-100 border min-w-[480px] cursor-pointer"

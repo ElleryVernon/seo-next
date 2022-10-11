@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import SearchCard from "../components/SearchCard";
 
-const search = () => {
+const Search = () => {
 	const [keyword, setKeyword] = useState("");
 	const [results, setResults] = useState([]);
 	const handleClick = async () => {
@@ -52,4 +52,4 @@ const search = () => {
 	);
 };
 
-export default search;
+export default Search;
