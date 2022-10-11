@@ -9,7 +9,7 @@ const Post = ({ blocks }) => {
 		<>
 			<Header />
 			<section className="p-16 w-3/5">
-				{blocks.map((block) => {
+				{blocks?.map((block) => {
 					if (block.rich_text.length && block.type === "paragraph") {
 						return (
 							<p className="text-[1.1rem] py-1" key={block.id}>
@@ -67,7 +67,7 @@ export const getStaticPaths = async () => {
 		database_id: process.env.NOTION_DATABASE_ID,
 	});
 	return {
-		paths: response.results.map((page) => ({ params: { id: page.id } })),
+		paths: response?.results?.map((page) => ({ params: { id: page.id } })),
 		fallback: true,
 	};
 };
@@ -91,8 +91,6 @@ export const getStaticProps = async (context) => {
 		});
 	}
 	const dates = page.properties.date.date.start.split("-");
-	console.log(dates);
-	console.log(`${dates[0]}년 ${dates[1]}월 ${dates[2]}일`);
 	return {
 		props: {
 			page_info: {
