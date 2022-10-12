@@ -31,38 +31,38 @@ const SearchCard = ({ result, rank }) => {
 		if (title.length === 0) {
 			Object.assign(bad, {
 				title:
-					"현재 페이지에 타이틀이 없어요. 현재 키워드를 포함하여 태그를 구성하세요",
+					"타이틀이 없어요. 현재 키워드를 포함하여 태그를 구성하세요",
 			});
 		} else if (title.length < 15) {
 			Object.assign(weak, {
-				title: `현재 페이지의 타이틀이 너무 짧아요. 15자 이상으로 작성해보세요. (현재 ${title.length}자)`,
+				title: `타이틀이 너무 짧아요. 15자 이상으로 작성해보세요. (현재 ${title.length}자)`,
 			});
 		} else if (title.length > 35) {
 			Object.assign(weak, {
-				title: `현재 페이지의 타이틀이 너무 길어요. 35자 이하로 작성해보세요. (현재 ${title.length}자)`,
+				title: `타이틀이 너무 길어요. 35자 이하로 작성해보세요. (현재 ${title.length}자)`,
 			});
 		} else {
 			Object.assign(good, {
-				title: `현재 페이지의 타이틀이 적당해요! (현재 ${title.length}자)`,
+				title: `타이틀이 적당해요! (현재 ${title.length}자)`,
 			});
 		}
 
 		if (description.length === 0) {
 			Object.assign(bad, {
 				description:
-					"현재 페이지에 설명이 없어요. 현재 키워드를 포함하여 페이지를 130자 내외로 요약하세요.",
+					"설명이 없어요. 현재 키워드를 포함하여 페이지를 130자 내외로 요약하세요.",
 			});
 		} else if (description.length < 50) {
 			Object.assign(weak, {
-				description: `현재 페이지의 설명이 너무 짧아요. 50자 이상으로 작성해보세요. (현재 ${description.length}자)`,
+				description: `설명이 너무 짧아요. 50자 이상으로 작성해보세요. (현재 ${description.length}자)`,
 			});
 		} else if (description.length > 130) {
 			Object.assign(weak, {
-				description: `현재 페이지의 설명이 너무 길어요. 130자 이하로 작성해보세요. (현재 ${description.length}자)`,
+				description: `설명이 너무 길어요. 130자 이하로 작성해보세요. (현재 ${description.length}자)`,
 			});
 		} else {
 			Object.assign(good, {
-				description: `현재 페이지의 설명이 적당해요! (현재 ${description.length}자)`,
+				description: `설명이 적당해요! (현재 ${description.length}자)`,
 			});
 		}
 		return { good, weak, bad };

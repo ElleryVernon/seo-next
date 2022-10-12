@@ -80,7 +80,6 @@ export const getStaticProps = async (context) => {
 	});
 
 	const blocks = [];
-
 	for (const result of results) {
 		const block = await notion.blocks.retrieve({ block_id: result.id });
 		blocks.push({
@@ -90,6 +89,7 @@ export const getStaticProps = async (context) => {
 			rich_text: block[`${block.type}`]?.rich_text || "",
 		});
 	}
+	
 	const dates = page.properties.date.date.start.split("-");
 	return {
 		props: {
